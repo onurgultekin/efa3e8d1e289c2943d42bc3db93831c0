@@ -7,8 +7,9 @@
       class="
         block
         p-4
-        w-2/5
+        w-9/12
         mx-auto
+        sm:w-2/5
         text-gray-900
         bg-gray-50
         rounded-lg
