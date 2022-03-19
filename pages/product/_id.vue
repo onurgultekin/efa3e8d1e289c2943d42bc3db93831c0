@@ -8,13 +8,13 @@
   import { mapState, mapActions } from 'vuex';
   export default {
     name: 'ProductDetailPage',
-    computed: {
-      ...mapState('products', ['list']),
-    },
     data() {
       return {
         product: this.$store.state.products.list.length > 0 ? this.$store.state.products.list.filter((item) => item.id === parseInt(this.$route.params.id))[0] : null
       }
+    },
+    computed: {
+      ...mapState('products', ['list']),
     },
     mounted() {
       if (!this.product) {

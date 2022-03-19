@@ -2,7 +2,9 @@ export const state = () => ({
     list: [],
     filteredList: [],
     searchTerm: null,
-    isLoading: false
+    isLoading: false,
+    currentPage: 1,
+    perPage: 10
 })
 
 export const mutations = {
@@ -17,6 +19,9 @@ export const mutations = {
   },
   set_isLoading(state, payload) {
     state.isLoading = payload;
+  },
+  set_current_page_number(state, number) {
+    state.currentPage = number;
   }
 }
 
