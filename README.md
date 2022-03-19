@@ -1,5 +1,7 @@
 # efa3e8d1e289c2943d42bc3db93831c0
 
+This is a NuxtJS project.
+
 ## Build Setup
 
 ```bash
@@ -66,3 +68,5 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+You can see this project live by clicking [here](https://efa3e8d1e289c2943d42bc3db93831.herokuapp.com/)
