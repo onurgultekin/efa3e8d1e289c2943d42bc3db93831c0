@@ -1,0 +1,58 @@
+<template>
+  <div
+    :style="{
+      'background-image':
+        'url(' + content.image.src + ')',
+    }"
+  >
+    <div class="flex container mx-auto flex-col lg:flex-row">
+      <div class="image">
+        <img
+          :src="'' + content.image.src"
+          alt=""
+        />
+      </div>
+      <div class="content-side py-6 w-4/5 px-6 w-full">
+        <div
+          class="
+            container
+            flex flex-wrap
+            lg:justify-between lg:items-center
+            mx-auto
+            flex-row
+          "
+        >
+          <div class="flex flex-col mb-4 lg:mb-0">
+            <p class="text-3xl">{{ content.title }}</p>
+            <p v-html="content.body_html" class="mt-4" />
+          </div>
+          <div class="mt-4 flex flex-col mt-4">
+            <p class="text-3xl">Variants</p>
+            <div class="flex mt-4">
+              <VariantItem v-for="variant in content.variants" :variant="variant" :key="variant.id" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'ProductDetail',
+    props: {
+      content: {
+        type: Object,
+        required: true
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.container {
+  background-color: #f2f2f2;
+  opacity: 0.95;
+}
+</style>

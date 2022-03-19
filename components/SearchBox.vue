@@ -23,14 +23,17 @@
         dark:focus:border-blue-500
         my-6
       "
+      @keyup="filterResults"
     />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'SearchBox',
   computed: {
+    ...mapState('products', ['list']),
     searchTerm: {
       get(){
         return this.$store.state.products.searchTerm;
@@ -38,6 +41,18 @@ export default {
       set(value) {
         this.$store.commit('products/set_searchTerm', value);
       }
+    }
+  },
+  methods: {
+    filterResults(event) {
+      const value = event.target.value;
+      const filteredItems = this.list.filter(item => {
+          return value
+            .toLowerCase()
+            .split(" ")
+            .every(v => item.title.toLowerCase().includes(v));
+        });
+      this.$store.commit('products/set_filtered_items', filteredItems);
     }
   }
 }

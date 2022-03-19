@@ -1,10 +1,13 @@
 <template>
   <div>
-    <div v-if="list.length > 0" class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-      <ProductItem v-for="product in list" :key="product.id" :product="product" />
+    <div v-if="!isLoading && filteredList.length > 0" class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      <ProductItem v-for="product in filteredList" :key="product.id" :product="product" />
+    </div>
+    <div v-else-if="!searchTerm">
+     Getting list...
     </div>
     <div v-else>
-      Getting Products...
+     No result found for "{{ searchTerm }}"
     </div>
   </div>
 </template>
@@ -14,10 +17,12 @@
   export default {
     name: 'ProductsContainer',
     computed: {
-      ...mapState('products', ['list'])
+      ...mapState('products', ['filteredList', 'isLoading', 'searchTerm','list'])
     },
     created() {
-      this.getProducts();
+      if (this.list.length === 0) {
+        this.getProducts();
+      }
     },
     methods: {
       ...mapActions('products', ['getProducts'])
