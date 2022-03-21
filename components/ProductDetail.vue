@@ -23,11 +23,11 @@
           "
         >
           <div class="flex flex-col mb-4 lg:mb-0">
-            <p class="text-3xl">{{ content.title }}</p>
-            <p class="mt-4" v-html="content.body_html" />
+            <p class="text-3xl title-text">{{ content.title }}</p>
+            <p class="mt-4 content-body" v-html="content.body_html" />
           </div>
           <div class="mt-4 flex flex-col mt-4">
-            <p class="text-3xl">Variants</p>
+            <p class="text-3xl variants-text">Variants</p>
             <div class="flex mt-4">
               <VariantItem v-for="variant in content.variants" :key="variant.id" :variant="variant" />
             </div>
