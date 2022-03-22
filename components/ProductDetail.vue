@@ -33,6 +33,13 @@
             </div>
           </div>
         </div>
+        <div class="mt-4">
+          <nuxt-link to="/">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Go back to list
+            </button>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
