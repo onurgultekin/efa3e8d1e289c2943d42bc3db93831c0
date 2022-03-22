@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 import ProductDetail from '@/components/ProductDetail.vue'
 
 describe('Testing Component props', () => {
@@ -11,6 +11,9 @@ describe('Testing Component props', () => {
           title: 'Test',
           body_html: '<p>P HTML Element</p>'
         }
+      },
+      stubs: {
+        NuxtLink: RouterLinkStub
       }
     })
     it('checks the prop image src', () => {
